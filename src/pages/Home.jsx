@@ -56,9 +56,15 @@ export default function Home() {
 
   const handleAddSubmit = () => {
     const lengthList = produks.items.length
+    let newId = 0
+    if (lengthList == 0) {
+      newId += 1
+    } else {
+      newId = produks.items[lengthList - 1].id + 1
+    }
     dispatch(
       addProduk({
-        id: produks.items[lengthList - 1].id + 1,
+        id: newId,
         nama: formDataProduks.nama,
         hargaBeli: formDataProduks.hargaBeli,
         hargaJual: formDataProduks.hargaJual,
